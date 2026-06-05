@@ -224,16 +224,13 @@ export default function LifeAudit() {
 
   const submitLead = async () => {
     setSubmitting(true);
-    const url = process.env.NEXT_PUBLIC_APPS_SCRIPT_URL;
-    if (url) {
-      try {
-        await fetch(url, {
-          method: "POST", mode: "no-cors",
-          headers: { "Content-Type": "text/plain" },
-          body: JSON.stringify({ name, email, scores, avg }),
-        });
-      } catch { /* never block results */ }
-    }
+    try {
+      await fetch("https://hooks.zapier.com/hooks/catch/27813997/4b0xkmm/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, scores, avg }),
+      });
+    } catch { /* never block results */ }
     setSubmitting(false);
     setStage("results");
   };
