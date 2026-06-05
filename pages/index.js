@@ -5,7 +5,7 @@ import React, { useState } from "react";
 // ⚙️ true  = LEAD MAGNET  |  false = CLIENT DIAGNOSTIC
 // ─────────────────────────────────────────────────────────────
 const LEAD_MAGNET = true;
-const BOOKING_URL = "#book";
+const BOOKING_URL = "https://stan.store/DestineePierreArtistry/p/book-a-11-call-with-me-96cslfgn";
 
 // ── Brand palette ─────────────────────────────────────────────
 const C = {
