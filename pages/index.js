@@ -210,17 +210,21 @@ export default function LifeAudit() {
 
   const submitLead = async () => {
     setSubmitting(true);
-    try {
-      await fetch("/api/capture-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, scores, avg }),
-      });
-    } catch {
-      // Don't block results if the network call fails
-    } finally {
-      setSubmitting(false);
+    const url = process.env.NEXT_PUBLIC_APPS_SCRIPT_URL;
+    if (url) {
+      try {
+        // no-cors: response is opaque but the data arrives at Apps Script
+        await fetch(url, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain" },
+          body: JSON.stringify({ name, email, scores, avg }),
+        });
+      } catch {
+        // Never block the user from seeing their results
+      }
     }
+    setSubmitting(false);
     setStage("results");
   };
 
