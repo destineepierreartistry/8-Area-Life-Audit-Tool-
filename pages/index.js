@@ -717,7 +717,7 @@ export default function LifeAudit() {
                 in your voice, with a plan — that's what a call is for.
               </p>
               <a
-                href={BOOKING_URL}
+                href="https://stan.store/DestineePierreArtistry/p/book-a-11-call-with-me-96cslfgn"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="primary-btn"
