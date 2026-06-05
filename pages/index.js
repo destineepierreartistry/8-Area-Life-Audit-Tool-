@@ -225,10 +225,11 @@ export default function LifeAudit() {
   const submitLead = async () => {
     setSubmitting(true);
     try {
+      const params = new URLSearchParams({ name, email, avg: String(avg) });
       await fetch("https://hooks.zapier.com/hooks/catch/27813997/4b0xkmm/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, scores, avg }),
+        mode: "no-cors",
+        body: params,
       });
     } catch { /* never block results */ }
     setSubmitting(false);
