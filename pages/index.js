@@ -221,10 +221,6 @@ export default function LifeAudit() {
   const strengths = [...sorted].reverse().slice(0, 2);
   const t         = tier(avg);
 
-  const book = () =>
-    BOOKING_URL === "#book"
-      ? document.getElementById("book")?.scrollIntoView({ behavior: "smooth" })
-      : window.open(BOOKING_URL, "_blank");
 
   const submitLead = async () => {
     setSubmitting(true);
@@ -720,9 +716,15 @@ export default function LifeAudit() {
                 And if you want a real set of eyes on this map — your exact gaps,
                 in your voice, with a plan — that's what a call is for.
               </p>
-              <button className="primary-btn" onClick={book}>
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="primary-btn"
+                style={{ display: "inline-block", textDecoration: "none" }}
+              >
                 Book My Free Call →
-              </button>
+              </a>
             </>
           )}
         </div>
